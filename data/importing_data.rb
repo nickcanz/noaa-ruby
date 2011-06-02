@@ -13,19 +13,20 @@ def convert_latlon(deg_str)
   deg_dec * hemisphere
 end
 
-#db = Mongo::Connection.new.db("mydb")
-#stations = db["weatherStations"]
-#
-#CSV.foreach("weather_stations.txt", { :col_sep => ';'}) do |row|
-#  station = {
-#    "ICAOIndicator" => row[0],
-#    "placeName"     => row[3],
-#    "loc" => {
-#      "lat" => row[7],
-#      "lon" => row[8]
-#    }
-#  }
-#  p row
-#end
+db = Mongo::Connection.new.db("mydb")
+stations = db["weatherStations"]
 
+count = 1
 
+CSV.foreach("weather_stations.txt", { :col_sep => ';'}) do |row|
+  station = {
+    "ICAOIndicator" => row[0],
+    "placeName"     => row[3],
+    "loc" => {
+      "lat" => convert_latlon(row[7]),
+      "lon" => convert_latlon(row[8])
+    }
+  }
+  count += 1
+  p count
+end
