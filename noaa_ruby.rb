@@ -19,7 +19,6 @@ module NoaaRuby
       }
 
       parsed_resp = Nokogiri::XML(response)
-      puts parsed_resp
       current_temp = parsed_resp.at_css("temperature[type=apparent] value").content
       return current_temp
     end
