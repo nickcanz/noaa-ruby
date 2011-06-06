@@ -4082,7 +4082,7 @@ KSTP;--;---;DOWNTOWN HOLMAN FIELD;MN;United States;4;44-56N;093-03W;44-56-31N;09
 KSTS;--;---;SANTA ROSA SONOMA COUNTY;CA;United States;4;38-30N;122-49W;38-30-16N;122-48-17W;38;39;;
 KSTT;--;---;CYRIL E. KING INT'L AIRPORT .;VI;United States;4;18-20N;064-59W;18-20-26N;064-58-30W;7;15;;
 KSTX;--;---;HENRY E. ROHLSEN;VI;United States;4;17-42N;064-48W;17-42-08N;064-47-56W;19;9;;
-KSTZ;--;---;South Timbalier;United States;4;28-09-35N;090-39-59W;;;;;;;
+KSTZ;--;---;South Timbalier;LA;United States;4;28-09-35N;090-39-59W;;;;;;;
 KSUA;--;---;Stuart, Witham Field Airport;FL;United States;4;27-10-54N;080-13-16W;;;6;;;
 KSUE;--;---;Sturgeon Bay;WI;United States;4;44-51N;087-25W;;;221;;;
 KSUN;--;---;Hailey, Friedman Memorial Airport;ID;United States;4;43-30N;114-18W;;;1621;;;
