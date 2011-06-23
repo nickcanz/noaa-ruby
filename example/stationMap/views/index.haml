@@ -1,0 +1,30 @@
+!!! 5
+%html
+  %head
+    %meta{ :name => "viewport", :content => "initial-scale=1.0, user-scalable=no" }
+    %title Weather Station Map
+    %script{ :type => "text/javascript", :src => "#{@jquery_script}" }
+    %script{ :type => "text/javascript", :src => "#{@google_script}" }
+    %style(type="text/css")
+      :sass
+        html
+          height: 100%
+        body
+          height: 100%
+          margin: 0px
+          padding: 0px
+        #map
+          width: 100%
+          height: 100%
+  %body
+    #map
+    :javascript
+      $(document).ready(function () {
+        var center = new google.maps.LatLng(40, -75);
+        var opts = {
+          zoom: 8,
+          center: center,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"), opts);
+      });
