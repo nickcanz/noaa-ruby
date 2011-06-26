@@ -27,7 +27,7 @@ def convert_latlon(deg_str)
   deg_dec * hemisphere
 end
 
-db = Mongo::Connection.new.db("myapp")
+db = Mongo::Connection.new.db("stationMap")
 stations = db["weatherStations"]
 
 CSV.foreach("weather_stations.txt", { :col_sep => ';'}) do |row|
