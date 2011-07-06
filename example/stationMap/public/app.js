@@ -15,7 +15,11 @@ $(document).ready(function () {
       marker.setMap(null);
     });
     $.ajax({
-      url: 'stations/' + center.lat() + '/' + center.lng(),
+      url: 'stations',
+      data: {
+        lat: center.lat(),
+        lng: center.lng()
+      },
       success: function (stations) {
         markers = [];
         $.each(stations, function (idx, station) {
