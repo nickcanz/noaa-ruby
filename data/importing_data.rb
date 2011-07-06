@@ -29,6 +29,7 @@ end
 
 db = Mongo::Connection.new.db("stationMap")
 stations = db["weatherStations"]
+stations.create_index([["loc", Mongo::GEO2D]])
 
 CSV.foreach("weather_stations.txt", { :col_sep => ';'}) do |row|
   station = {
@@ -36,7 +37,7 @@ CSV.foreach("weather_stations.txt", { :col_sep => ';'}) do |row|
     "placeName"     => row[3],
     "loc" => {
       "lat" => convert_latlon(row[7]),
-      "lon" => convert_latlon(row[8])
+      "lng" => convert_latlon(row[8])
     }
   }
 stations.insert(station)
