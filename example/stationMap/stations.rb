@@ -6,11 +6,18 @@ require 'json'
 
 require '../noaa_ruby'
 
-
 get '/' do
+  data = NOAA.current_weather(19106)
+  temp = data[:temp]
+
+  @current_temp = temp
+  haml :index
+end
+
+get '/map' do
   @jquery_script = "https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"
   @google_script = "http://maps.google.com/maps/api/js?sensor=true"  
-  haml :index
+  haml :map
 end
 
 get '/weather/:zip' do
