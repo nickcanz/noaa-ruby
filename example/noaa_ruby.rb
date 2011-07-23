@@ -13,12 +13,14 @@ module NOAA
         :zipCodeList  => zip,
         :product      => 'time-series',
         :begin        => DateTime.now.to_s,
-        :end          => (DateTime.now + 1).to_s,
+        :end          => (DateTime.now + 3).to_s,
         :appt         => 'appt',
       }
     }
 
     parsed_resp = Nokogiri::XML(response)
+
+    p parsed_resp.to_s
 
     times =  parsed_resp.css("time-layout start-valid-time").map do |date_elem|
       DateTime.parse(date_elem.content)

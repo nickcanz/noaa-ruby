@@ -6,9 +6,11 @@ require 'json'
 
 require '../noaa_ruby'
 
-get '/' do
-  temps = NOAA.current_weather(19106)
+get '/:zip' do
+  zip = params['zip'].to_i
+  temps = NOAA.current_weather(zip)
   @temps = temps
+  @dateformat = "%a  %b %d"
   haml :index
 end
 

@@ -1,13 +1,36 @@
 html {
   width: 100%; }
 
-h1 {
-  font-family: "Lobster", serif;
-  text-align: center;
-  font-size: 300%;
-  margin-top: 25px; }
+body {
+  width: 100%; }
 
 #main {
-  width: 1000px;
+  width: 550px;
   height: 100%;
   margin: 0px auto; }
+  #main h1 {
+    font-family: "Lobster", serif;
+    font-size: 300%;
+    margin-top: 5%;
+    margin-left: 10%; }
+  #main ul li {
+    width: 535px;
+    clear: both; }
+  #main ul li.day {
+    background-color: #eeeeee; }
+    #main ul li.day span {
+      font-family: "Lobster", serif;
+      font-size: 100%; }
+  #main ul li.data {
+    margin: 10px 0px;
+    border-bottom: 1px dashed #5d0015;
+    overflow: hidden; }
+    #main ul li.data span.time {
+      font-size: 120%;
+      font-family: "Tienne", serif;
+      margin-left: 10%; }
+    #main ul li.data span.temp {
+      float: right;
+      text-align: right;
+      font-family: "Tienne", serif;
+      font-size: 200%; }
