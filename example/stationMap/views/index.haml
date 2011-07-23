@@ -2,13 +2,16 @@
 %html
   %head
     %title Weather App
-    %link{"rel" => "stylesheet", "href" => "stylesheets/reset.css", "type" => "text/css"}
-    %link{"rel" => "stylesheet", "href" => "stylesheets/sass/main.css", "type" => "text/css"}
+    %link{'rel' => 'stylesheet', 'href' => 'stylesheets/reset.css', 'type' => 'text/css'}
+    %link{'rel' => 'stylesheet', 'href' => 'stylesheets/sass/main.css', 'type' => 'text/css'}
+    %link{'rel' => 'stylesheet', 'href' => 'http://fonts.googleapis.com/css?family=Lobster&v2', 'type' => 'text/css' }
   %body
     #main
-      #header
-        Weather App
-      #app
-        App stuff
-      #footer
-        Footer stuff
+      %h1 How about that Weather?
+
+      %dl
+      - for temp in @temps
+        %dt 
+          = temp[:time].strftime("%d %b %H:%M") 
+        %dd
+          = temp[:temp]

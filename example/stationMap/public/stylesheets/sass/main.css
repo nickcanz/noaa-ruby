@@ -1,11 +1,13 @@
 html {
   width: 100%; }
 
-body {
-  background-color: #666666; }
+h1 {
+  font-family: "Lobster", serif;
+  text-align: center;
+  font-size: 300%;
+  margin-top: 25px; }
 
 #main {
-  background-color: white;
   width: 1000px;
   height: 100%;
   margin: 0px auto; }

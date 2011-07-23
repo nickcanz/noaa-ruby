@@ -7,10 +7,8 @@ require 'json'
 require '../noaa_ruby'
 
 get '/' do
-  data = NOAA.current_weather(19106)
-  temp = data[:temp]
-
-  @current_temp = temp
+  temps = NOAA.current_weather(19106)
+  @temps = temps
   haml :index
 end
 
@@ -25,18 +23,19 @@ get '/weather/:zip' do
   data = NOAA.current_weather(zip)
 
   temp = data[:temp]
+  return temp
 
-  db = Mongo::Connection.new.db("stationMap")
-  stations = db["weatherStations"]
+  #db = Mongo::Connection.new.db("stationMap")
+  #stations = db["weatherStations"]
 
-  station_id = stations
-    .find(
-      {'loc' => { '$near' => [data[:lat], data[:lng]]}}, 
-      {:limit => 1})
-    .map { |station| station["ICAOIndicator"] }
-    .first
+  #station_id = stations
+  #  .find(
+  #    {'loc' => { '$near' => [data[:lat], data[:lng]]}}, 
+  #    {:limit => 1})
+  #  .map { |station| station["ICAOIndicator"] }
+  #  .first
 
-  return NOAA.history_weather(station_id).to_s
+  #return NOAA.history_weather(station_id).to_s
 end
 
 get '/stations' do

@@ -19,13 +19,23 @@ module NOAA
     }
 
     parsed_resp = Nokogiri::XML(response)
-    current_temp = parsed_resp.at_css("temperature[type=apparent] value").content
-    location = parsed_resp.at_css("point")
-    return {
-      :current_temp => current_temp,
-      :lat          => location['latitude'].to_f,
-      :lng          => location['longitude'].to_f, 
-    }
+
+    times =  parsed_resp.css("time-layout start-valid-time").map do |date_elem|
+      DateTime.parse(date_elem.content)
+    end
+    temps = parsed_resp.css("temperature[type=apparent] value").map do |temp_elem|
+      temp_elem.content
+    end
+    zipped = times.zip(temps)
+
+    dict = zipped.map do |z|
+      {
+        :time => z[0],
+        :temp => z[1],
+      }
+    end
+
+    return dict
   end
   module_function :current_weather
 
