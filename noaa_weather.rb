@@ -20,8 +20,6 @@ module NOAA
 
     parsed_resp = Nokogiri::XML(response)
 
-    p parsed_resp.to_s
-
     times =  parsed_resp.css("time-layout start-valid-time").map do |date_elem|
       DateTime.parse(date_elem.content)
     end
